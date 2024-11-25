@@ -39,12 +39,13 @@ function BigscreenPlayer() {
   let mediaSources
   let playbackElement
   let readyHelper
-  let subtitles
+  let subtitles 
 
   const END_OF_STREAM_TOLERANCE = 10
 
   function mediaStateUpdateCallback(evt) {
     if (evt.timeUpdate) {
+      const time = evt.timeUpdate
       callCallbacks(timeUpdateCallbacks, {
         currentTime: evt.data.currentTime,
         endOfStream,
